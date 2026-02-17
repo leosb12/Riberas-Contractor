@@ -24,7 +24,7 @@ const contactInfo = [
   {
     icon: HiClock,
     label: 'Working Hours',
-    value: 'Mon – Sat: 7 AM – 6 PM',
+    value: 'Mon – Fri: 9 AM – 5 PM',
     href: null,
   },
 ]
