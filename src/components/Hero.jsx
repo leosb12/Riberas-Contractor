@@ -28,7 +28,12 @@ function AnimatedCounter({ target, suffix = '', duration = 2000 }) {
     return () => observer.disconnect()
   }, [target, duration])
 
-  return <span ref={ref}>{count}{suffix}</span>
+  return (
+    <span ref={ref}>
+      {count}
+      {suffix}
+    </span>
+  )
 }
 
 /* Floating particle component */
@@ -83,8 +88,10 @@ export default function Hero() {
         <div className="absolute inset-0">
           <img
             src="/banner.webp"
-            alt="Riberas Contractor"
-            className={`w-full h-full object-cover transition-all duration-[2s] ${loaded ? 'scale-100 blur-0' : 'scale-110 blur-sm'}`}
+            alt="Residential remodeling and painting contractor in Bowling Green, Kentucky"
+            className={`w-full h-full object-cover transition-all duration-[2s] ${
+              loaded ? 'scale-100 blur-0' : 'scale-110 blur-sm'
+            }`}
           />
         </div>
 
@@ -97,9 +104,12 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.5)_100%)]" />
 
         {/* Film grain effect */}
-        <div className="absolute inset-0 opacity-[0.04] mix-blend-overlay" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-        }} />
+        <div
+          className="absolute inset-0 opacity-[0.04] mix-blend-overlay"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          }}
+        />
 
         {/* Floating particles */}
         {particles.map((p) => (
@@ -108,14 +118,32 @@ export default function Hero() {
 
         {/* Animated light streaks */}
         <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-white/10 to-transparent animate-light-streak" />
-        <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-primary-400/10 to-transparent animate-light-streak" style={{ animationDelay: '3s' }} />
+        <div
+          className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-primary-400/10 to-transparent animate-light-streak"
+          style={{ animationDelay: '3s' }}
+        />
       </div>
 
       {/* ===== DECORATIVE ELEMENTS ===== */}
       {/* Geometric accent lines */}
-      <div className={`absolute top-20 left-8 sm:left-16 w-px h-32 bg-gradient-to-b from-primary-400/60 to-transparent transition-all duration-[2s] delay-[1.5s] ${loaded ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'}`} style={{ transformOrigin: 'top' }} />
-      <div className={`absolute top-28 left-8 sm:left-16 w-8 h-px bg-gradient-to-r from-primary-400/60 to-transparent transition-all duration-[2s] delay-[2s] ${loaded ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`} style={{ transformOrigin: 'left' }} />
-      <div className={`absolute bottom-32 right-8 sm:right-16 w-px h-24 bg-gradient-to-t from-primary-400/40 to-transparent transition-all duration-[2s] delay-[2.2s] ${loaded ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'}`} style={{ transformOrigin: 'bottom' }} />
+      <div
+        className={`absolute top-20 left-8 sm:left-16 w-px h-32 bg-gradient-to-b from-primary-400/60 to-transparent transition-all duration-[2s] delay-[1.5s] ${
+          loaded ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
+        }`}
+        style={{ transformOrigin: 'top' }}
+      />
+      <div
+        className={`absolute top-28 left-8 sm:left-16 w-8 h-px bg-gradient-to-r from-primary-400/60 to-transparent transition-all duration-[2s] delay-[2s] ${
+          loaded ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
+        }`}
+        style={{ transformOrigin: 'left' }}
+      />
+      <div
+        className={`absolute bottom-32 right-8 sm:right-16 w-px h-24 bg-gradient-to-t from-primary-400/40 to-transparent transition-all duration-[2s] delay-[2.2s] ${
+          loaded ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
+        }`}
+        style={{ transformOrigin: 'bottom' }}
+      />
 
       {/* ===== MAIN CONTENT ===== */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 pb-20 sm:pb-24">
@@ -123,7 +151,11 @@ export default function Hero() {
           {/* Left column — Text content */}
           <div className="flex-1 text-center lg:text-left max-w-2xl">
             {/* Animated badge */}
-            <div className={`transition-all duration-1000 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div
+              className={`transition-all duration-1000 ease-out ${
+                loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+            >
               <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full px-5 py-2.5 mb-8 hover:bg-white/15 transition-colors duration-500 group">
                 <span className="relative flex w-2 h-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75" />
@@ -137,7 +169,16 @@ export default function Hero() {
 
             {/* Main heading with reveal animation */}
             <div className="overflow-hidden mb-6 sm:mb-8">
-              <h1 className={`transition-all duration-[1.2s] delay-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
+              <h1
+                className={`transition-all duration-[1.2s] delay-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  loaded ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
+                }`}
+              >
+                {/* SEO-only headline (does NOT affect design) */}
+                <span className="sr-only">
+                  Painting & Remodeling Contractor in Bowling Green, KY
+                </span>
+
                 <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight">
                   We Build
                 </span>
@@ -147,38 +188,68 @@ export default function Hero() {
                       Your Vision
                     </span>
                     {/* Animated underline */}
-                    <span className={`absolute -bottom-2 left-0 h-[3px] bg-gradient-to-r from-primary-400 to-emerald-400 transition-all duration-[1.5s] delay-[1.2s] ease-out rounded-full ${loaded ? 'w-full' : 'w-0'}`} />
+                    <span
+                      className={`absolute -bottom-2 left-0 h-[3px] bg-gradient-to-r from-primary-400 to-emerald-400 transition-all duration-[1.5s] delay-[1.2s] ease-out rounded-full ${
+                        loaded ? 'w-full' : 'w-0'
+                      }`}
+                    />
                   </span>
                 </span>
               </h1>
             </div>
 
             {/* Subtext with fade */}
-            <div className={`transition-all duration-1000 delay-[700ms] ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+            <div
+              className={`transition-all duration-1000 delay-[700ms] ease-out ${
+                loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+              }`}
+            >
               <p className="text-white/70 text-base sm:text-lg md:text-xl leading-relaxed mb-8 sm:mb-10 max-w-xl mx-auto lg:mx-0">
-                Professional remodeling, painting, flooring & drywall.
-                <span className="text-white font-medium block mt-1">Craftsmanship that speaks for itself.</span>
+                Professional remodeling, painting, flooring & drywall in Bowling Green, Kentucky.
+                <span className="text-white font-medium block mt-1">
+                  Craftsmanship that speaks for itself.
+                </span>
               </p>
             </div>
 
             {/* CTA buttons */}
-            <div className={`transition-all duration-1000 delay-[900ms] ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+            <div
+              className={`transition-all duration-1000 delay-[900ms] ease-out ${
+                loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+              }`}
+            >
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12 sm:mb-14">
                 {/* Primary CTA */}
-                <a href="#contact" className="group relative inline-flex items-center justify-center overflow-hidden rounded-2xl">
+                <a
+                  href="#contact"
+                  className="group relative inline-flex items-center justify-center overflow-hidden rounded-2xl"
+                >
                   {/* Animated border glow */}
                   <span className="absolute inset-0 bg-gradient-to-r from-primary-400 via-emerald-400 to-primary-400 bg-[length:200%_auto] animate-gradient-x rounded-2xl" />
                   <span className="absolute inset-[2px] bg-gradient-to-r from-primary-600 to-primary-700 rounded-[14px] group-hover:from-primary-700 group-hover:to-primary-800 transition-all duration-300" />
                   <span className="relative flex items-center gap-2 text-white font-bold text-base sm:text-lg py-4 px-10 sm:px-12">
                     Get Free Estimate
-                    <svg className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    <svg
+                      className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
                     </svg>
                   </span>
                 </a>
 
                 {/* Phone CTA */}
-                <a href="tel:+12704218169" className="group inline-flex items-center justify-center bg-white/10 backdrop-blur-xl text-white font-bold text-base sm:text-lg py-4 px-10 sm:px-12 rounded-2xl border border-white/20 hover:bg-white/20 hover:border-white/40 hover:-translate-y-0.5 transition-all duration-300">
+                <a
+                  href="tel:+12704218169"
+                  className="group inline-flex items-center justify-center bg-white/10 backdrop-blur-xl text-white font-bold text-base sm:text-lg py-4 px-10 sm:px-12 rounded-2xl border border-white/20 hover:bg-white/20 hover:border-white/40 hover:-translate-y-0.5 transition-all duration-300"
+                >
                   <HiPhone className="text-primary-400 text-xl mr-2.5 group-hover:animate-wiggle" />
                   (270) 421-8169
                 </a>
@@ -186,14 +257,21 @@ export default function Hero() {
             </div>
 
             {/* Trust badges */}
-            <div className={`transition-all duration-1000 delay-[1100ms] ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+            <div
+              className={`transition-all duration-1000 delay-[1100ms] ease-out ${
+                loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+              }`}
+            >
               <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
                 {[
                   { Icon: HiShieldCheck, text: 'Licensed & Insured' },
                   { Icon: HiClipboardList, text: 'Free Estimates' },
                   { Icon: HiStar, text: '100% Satisfaction' },
                 ].map((badge) => (
-                  <div key={badge.text} className="flex items-center gap-2 text-white/60 text-xs sm:text-sm font-medium">
+                  <div
+                    key={badge.text}
+                    className="flex items-center gap-2 text-white/60 text-xs sm:text-sm font-medium"
+                  >
                     <badge.Icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary-400" />
                     <span>{badge.text}</span>
                   </div>
@@ -203,7 +281,11 @@ export default function Hero() {
           </div>
 
           {/* Right column — Stats cards (glass morphism) */}
-          <div className={`flex-shrink-0 w-full lg:w-auto transition-all duration-[1.4s] delay-[600ms] ease-out ${loaded ? 'opacity-100 translate-x-0 translate-y-0' : 'opacity-0 translate-x-12 translate-y-8'}`}>
+          <div
+            className={`flex-shrink-0 w-full lg:w-auto transition-all duration-[1.4s] delay-[600ms] ease-out ${
+              loaded ? 'opacity-100 translate-x-0 translate-y-0' : 'opacity-0 translate-x-12 translate-y-8'
+            }`}
+          >
             <div className="grid grid-cols-3 lg:grid-cols-1 gap-3 sm:gap-4 max-w-md mx-auto lg:max-w-none">
               {stats.map((stat, i) => (
                 <div
@@ -231,7 +313,9 @@ export default function Hero() {
       {/* ===== SCROLL INDICATOR ===== */}
       <a
         href="#services"
-        className={`absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 hidden sm:flex sm:flex-col items-center gap-2 text-white/40 hover:text-primary-400 transition-all duration-500 group ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+        className={`absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 hidden sm:flex sm:flex-col items-center gap-2 text-white/40 hover:text-primary-400 transition-all duration-500 group ${
+          loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        }`}
         style={{ transitionDelay: '1.6s' }}
       >
         <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em]">Scroll</span>
