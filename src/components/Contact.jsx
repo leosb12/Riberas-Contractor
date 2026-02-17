@@ -13,7 +13,7 @@ const contactInfo = [
     icon: HiLocationMarker,
     label: 'Address',
     value: '1856 Loop St, Bowling Green, KY',
-    href: 'https://maps.google.com/?q=1856+Loop+St+Bowling+Green+KY',
+    href: 'https://maps.google.com/?q=1856+Loop+St+Unit+442+Bowling+Green+KY',
   },
   {
     icon: HiMail,

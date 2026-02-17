@@ -105,7 +105,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://maps.google.com/?q=1856+Loop+St+Bowling+Green+KY"
+                  href="https://maps.google.com/?q=1856+Loop+St+Unit+442+Bowling+Green+KY"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center sm:justify-start gap-3 text-dark-400 hover:text-primary-400 transition-all text-xs sm:text-sm group"
@@ -113,7 +113,7 @@ export default function Footer() {
                   <div className="w-8 h-8 sm:w-10 sm:h-10 bg-dark-800 group-hover:bg-primary-600 rounded-lg flex items-center justify-center transition-all flex-shrink-0 group-hover:scale-110">
                     <HiLocationMarker className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
-                  <span>1856 Loop St, Bowling Green, KY</span>
+                  <span>1856 Loop St, Unit 442, Bowling Green, Kentucky, United States</span>
                 </a>
               </li>
               <li>
