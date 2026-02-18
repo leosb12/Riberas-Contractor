@@ -42,7 +42,7 @@ export default function Navbar() {
           {/* Logo */}
           <a href="#home" className="flex items-center space-x-2 sm:space-x-3 group flex-shrink-0">
             <img
-              src="/logo.webp"
+              src="/logo.ico"
               alt="Riberas Contractor"
               className="w-9 h-9 sm:w-11 sm:h-11 object-contain rounded-md shadow-sm transition-all duration-500"
             />
@@ -108,7 +108,7 @@ export default function Navbar() {
           <div className="max-h-[85vh] overflow-y-auto">
             <div className="flex items-center justify-between px-5 py-4 border-b border-dark-100 bg-white sticky top-0 z-10">
               <a href="#home" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
-                <img src="/logo.webp" alt="logo" className="w-9 h-9 object-contain rounded-md" />
+                <img src="/logo.ico" alt="logo" className="w-9 h-9 object-contain rounded-md" />
                 <span className="font-black text-lg text-dark-900">RIBERAS</span>
               </a>
               <button className="p-2 rounded-lg text-dark-700 hover:bg-dark-50" onClick={() => setIsOpen(false)} aria-label="Close menu">

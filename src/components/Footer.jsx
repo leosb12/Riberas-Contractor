@@ -37,7 +37,7 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-1 space-y-4 sm:space-y-6 flex flex-col items-center sm:items-start">
             <div className="flex items-center space-x-3">
               <img
-                src="/logo.webp"
+                src="/logo.ico"
                 alt="Riberas Contractor"
                 className="w-9 h-9 sm:w-11 sm:h-11 object-contain rounded-md shadow-sm"
               />
