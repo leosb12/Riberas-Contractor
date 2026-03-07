@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import useScrollReveal from '../hooks/useScrollReveal'
 
 const services = [
@@ -7,6 +8,7 @@ const services = [
     description:
       'Expert painting services with premium materials. Clean lines, flawless finishes, and lasting color.',
     image: '/services/painting.png',
+    href: '/services/painting',
   },
   {
     number: '02',
@@ -14,6 +16,7 @@ const services = [
     description:
       'Laminate and ceramic tile installation with precise cuts, seamless patterns, and durable finishes.',
     image: '/services/flooring.png',
+    href: '/services/flooring',
   },
   {
     number: '03',
@@ -21,6 +24,7 @@ const services = [
     description:
       'Professional drywall repair and finishing. From patching to full installations, smooth walls guaranteed.',
     image: '/services/drywall.png',
+    href: '/services/drywall',
   },
   {
     number: '04',
@@ -28,6 +32,7 @@ const services = [
     description:
       'Custom deck and balcony builds designed for durability and functional outdoor living.',
     image: '/services/balcon.png',
+    href: '/services/deck',
   },
   {
     number: '05',
@@ -35,6 +40,7 @@ const services = [
     description:
       'Complete shower installations and tile work. Waterproof, beautiful, and built to code.',
     image: '/services/shower.jpg',
+    href: '/services/shower',
   },
   {
     number: '06',
@@ -42,6 +48,7 @@ const services = [
     description:
       'Custom kitchen and bathroom backsplashes with ceramic, porcelain, and decorative tile designs.',
     image: '/services/backsplash.jpg',
+    href: '/services/backsplash',
   },
 ]
 
@@ -85,7 +92,9 @@ export default function Services() {
         {/* 3x2 Grid of service cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7">
           {services.map((service, index) => (
-            <ServiceCard key={service.number} service={service} index={index} isVisible={isVisible} />
+            <Link key={service.number} to={service.href} className="block">
+              <ServiceCard service={service} index={index} isVisible={isVisible} />
+            </Link>
           ))}
         </div>
       </div>
@@ -98,7 +107,7 @@ function ServiceCard({ service, index, isVisible }) {
 
   return (
     <div
-      className={`group relative rounded-2xl overflow-hidden transition-all duration-700 ${
+      className={`group relative rounded-2xl overflow-hidden transition-all duration-700 cursor-pointer ${
         hasImage
           ? 'bg-dark-900 aspect-[5/4]'
           : 'bg-dark-50/80 border border-dark-100 hover:border-primary-200 hover:shadow-lg'
@@ -123,15 +132,12 @@ function ServiceCard({ service, index, isVisible }) {
             <p className="text-white/70 text-xs sm:text-sm leading-relaxed mb-3">
               {service.description}
             </p>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-1.5 text-primary-300 font-bold text-xs uppercase tracking-widest hover:text-primary-200 hover:gap-3 transition-all duration-300"
-            >
+            <span className="inline-flex items-center gap-1.5 text-primary-300 font-bold text-xs uppercase tracking-widest group-hover:text-primary-200 group-hover:gap-3 transition-all duration-300">
               Learn More
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </a>
+            </span>
           </div>
         </>
       ) : (
@@ -148,15 +154,12 @@ function ServiceCard({ service, index, isVisible }) {
           <p className="text-dark-500 text-xs sm:text-sm leading-relaxed mb-4">
             {service.description}
           </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-1.5 text-dark-800 font-bold text-xs uppercase tracking-widest hover:text-primary-700 hover:gap-3 transition-all duration-300"
-          >
+          <span className="inline-flex items-center gap-1.5 text-dark-800 font-bold text-xs uppercase tracking-widest group-hover:text-primary-700 group-hover:gap-3 transition-all duration-300">
             Learn More
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
+          </span>
         </div>
       )}
     </div>

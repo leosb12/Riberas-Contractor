@@ -1,14 +1,37 @@
 import { useState, useEffect } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { HiMenu, HiX } from 'react-icons/hi'
 
 const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'Services', href: '#services' },
-  { name: 'About', href: '#about' },
-  { name: 'Before/After', href: '#before-after' },
-  { name: 'Process', href: '#process' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', href: '/', anchor: '' },
+  { name: 'Services', href: '/', anchor: 'services' },
+  { name: 'About', href: '/', anchor: 'about' },
+  { name: 'Before/After', href: '/', anchor: 'before-after' },
+  { name: 'Process', href: '/', anchor: 'process' },
+  { name: 'Contact', href: '/', anchor: 'contact' },
 ]
+
+function NavLink({ link, scrolled, className, onClick }) {
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const handleClick = (e) => {
+    e.preventDefault()
+    if (onClick) onClick()
+    if (location.pathname === '/') {
+      const el = document.getElementById(link.anchor || 'home')
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      navigate(link.anchor ? `/#${link.anchor}` : '/')
+    }
+  }
+
+  return (
+    <a href={link.anchor ? `/#${link.anchor}` : '/'} onClick={handleClick} className={className}>
+      {link.name}
+    </a>
+  )
+}
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -40,7 +63,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <a href="#home" className="flex items-center space-x-2 sm:space-x-3 group flex-shrink-0">
+          <Link to="/" className="flex items-center space-x-2 sm:space-x-3 group flex-shrink-0">
             <img
               src="/logo.ico"
               alt="Riberas Contractor"
@@ -54,22 +77,21 @@ export default function Navbar() {
                 Contractor
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => (
-              <a
+              <NavLink
                 key={link.name}
-                href={link.href}
+                link={link}
+                scrolled={scrolled}
                 className={`px-3 lg:px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-300 ${
                   scrolled
                     ? 'text-dark-700 hover:text-primary-600 hover:bg-primary-50'
                     : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
-              >
-                {link.name}
-              </a>
+              />
             ))}
             <a
               href="tel:+12704218169"
@@ -107,10 +129,10 @@ export default function Navbar() {
         <div className={`absolute top-0 left-0 right-0 bg-white shadow-2xl transform transition-transform duration-400 ${isOpen ? 'translate-y-0' : '-translate-y-full'}`}>
           <div className="max-h-[85vh] overflow-y-auto">
             <div className="flex items-center justify-between px-5 py-4 border-b border-dark-100 bg-white sticky top-0 z-10">
-              <a href="#home" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
+              <Link to="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
                 <img src="/logo.ico" alt="logo" className="w-9 h-9 object-contain rounded-md" />
                 <span className="font-black text-lg text-dark-900">RIBERAS</span>
-              </a>
+              </Link>
               <button className="p-2 rounded-lg text-dark-700 hover:bg-dark-50" onClick={() => setIsOpen(false)} aria-label="Close menu">
                 <HiX size={22} />
               </button>
@@ -119,15 +141,13 @@ export default function Navbar() {
             <div className="px-4 py-6">
               <nav className="grid gap-2">
                 {navLinks.map((link, i) => (
-                  <a
+                  <NavLink
                     key={link.name}
-                    href={link.href}
+                    link={link}
+                    scrolled={true}
                     onClick={() => setIsOpen(false)}
                     className="block text-center text-dark-900 hover:text-white bg-dark-50 hover:bg-primary-600 border border-dark-200 hover:border-primary-600 px-6 py-4 rounded-xl text-lg font-semibold transition-all duration-300"
-                    style={{ transitionDelay: isOpen ? `${i * 40}ms` : '0ms' }}
-                  >
-                    {link.name}
-                  </a>
+                  />
                 ))}
               </nav>
 

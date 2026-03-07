@@ -1,22 +1,21 @@
+import { Link } from 'react-router-dom'
 import { HiPhone, HiLocationMarker, HiMail } from 'react-icons/hi'
 import useScrollReveal from '../hooks/useScrollReveal'
 
 const serviceLinks = [
-  'Interior & Exterior Painting',
-  'Laminate Flooring',
-  'Ceramic Tile Installation',
-  'Drywall Finishing',
-  'Deck Construction',
-  'Shower Remodeling',
-  'Backsplash Installation',
-  'Full Remodeling',
+  { name: 'Interior & Exterior Painting', href: '/services/painting' },
+  { name: 'Flooring Installation', href: '/services/flooring' },
+  { name: 'Drywall & Finishing', href: '/services/drywall' },
+  { name: 'Deck & Balcony Construction', href: '/services/deck' },
+  { name: 'Shower Remodeling', href: '/services/shower' },
+  { name: 'Backsplash Installation', href: '/services/backsplash' },
 ]
 
 const quickLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'Services', href: '#services' },
-  { name: 'About', href: '#about' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/#services' },
+  { name: 'About', href: '/#about' },
+  { name: 'Contact', href: '/#contact' },
 ]
 
 export default function Footer() {
@@ -60,12 +59,12 @@ export default function Footer() {
             <ul className="space-y-2 sm:space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-dark-400 hover:text-primary-400 transition-colors text-xs sm:text-sm font-medium hover:translate-x-1 inline-block transition-transform duration-200"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -76,13 +75,13 @@ export default function Footer() {
             <h4 className="font-bold text-base sm:text-lg mb-4 sm:mb-6 text-white">Services</h4>
             <ul className="space-y-2 sm:space-y-3">
               {serviceLinks.map((s) => (
-                <li key={s}>
-                  <a
-                    href="#services"
+                <li key={s.name}>
+                  <Link
+                    to={s.href}
                     className="text-dark-400 hover:text-primary-400 transition-colors text-xs sm:text-sm font-medium hover:translate-x-1 inline-block transition-transform duration-200"
                   >
-                    {s}
-                  </a>
+                    {s.name}
+                  </Link>
                 </li>
               ))}
             </ul>
